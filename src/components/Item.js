@@ -1,15 +1,9 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 
-const Item = () => {
-  const { categoryName, itemName } = useParams();
-
-  return (
-    <div>
-      <h3>Item Details</h3>
-      <p>Category: {categoryName}</p>
-      <p>Item: {itemName}</p>
-    </div>
-  );
+const ItemDetail = () => {
+  const { itemName } = useParams();
+  return <h3>Selected Item: {itemName.replace(/\b\w/g, char => char.toUpperCase())}</h3>;
 };
 
-export default Item;
+export default ItemDetail;

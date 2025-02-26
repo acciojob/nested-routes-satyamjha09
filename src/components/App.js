@@ -1,18 +1,16 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
 import Layout from "./Layout";
 import Category from "./Category";
-import Item from "./Item";
-
+import ItemDetail from "./Item";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
           <Route path="category/:categoryName" element={<Category />}>
-            <Route path=":itemName" element={<Item />} />
+            <Route path=":itemName" element={<ItemDetail />} />
           </Route>
         </Route>
       </Routes>
