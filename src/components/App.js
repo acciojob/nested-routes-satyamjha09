@@ -1,13 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "../pages/Home";
+import Layout from "./Layout";
+import Category from "./Category";
+import Item from "./Item";
 
-import React from "react";
-import './../styles/App.css';
 
 const App = () => {
   return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="category/:categoryName" element={<Category />}>
+            <Route path=":itemName" element={<Item />} />
+          </Route>
+        </Route>
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
